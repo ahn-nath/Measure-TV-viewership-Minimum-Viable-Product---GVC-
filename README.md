@@ -1,22 +1,23 @@
 # GVC-January-2021
 
-Measure TV viewership: Minimum Viable Product - GVC 
+Measure TV viewership:Â MinimumÂ Viable Product - GVCÂ 
 
-For one week three tech students and GVC participants worked on a big global data project aiming at enhancing the evaluation of TV viewership. Based on the project, Hybrid’s clients would receive data about market overview directly from individual TV sets describing user behavior, effectivity, and commercial impact of TV ads.  
+For one weekÂ threeÂ tech students and GVCÂ participantsÂ workedÂ on aÂ big globalÂ data project aimingÂ atÂ enhancingÂ the evaluationÂ of TV viewership. Based onÂ theÂ project,Â Hybridâ€™sÂ clients wouldÂ receive data about market overview directly from individual TV sets describing userÂ behavior, effectivity, and commercial impact of TV ads.Â Â 
 
-We worked with more than 500.000 TV devices located in the Czech Republic, and three operating databases with raw data about the 1) playout data (broadcasters and shows), 2) users and devices identification related data (Hybrid ID data), and 3) users sessions data for the validation and creation of the minimum viable product. 
- 
- 
-Accomplished: 
-* Data architecture: 3 data models, 3 database connectors (ETL), and 5 data tables. 
- 
-* BI processes: 6 case scenarios. 
- 
-* Real scenarios to be executed: 7/5 scenarios finished. 
- 
-* Data validation: 11/6 finished.  
- 
-* Anomaly detection and forecasting with ML algorithms: forecast: 70%% done [2/3 tasks]. 
+WeÂ worked with more thanÂ 500.000Â TV devicesÂ locatedÂ in theÂ Czech Republic,Â andÂ threeÂ operatingÂ databasesÂ with raw dataÂ about theÂ 1)Â playout data (broadcastersÂ and shows),Â 2)Â users and devices identification related dataÂ (Hybrid ID data), andÂ 3)Â users sessions dataÂ for the validation and creation of theÂ minimumÂ viableÂ product.Â 
+Â 
+Â 
+
+Accomplished:Â 
+* Data architecture:Â 3 data models, 3 database connectors (ETL), and 5 data tables.Â 
+Â 
+* BI processes:Â 6 case scenarios.Â 
+Â 
+* Real scenarios to be executed:Â 7/5 scenarios finished.Â 
+Â 
+* DataÂ validation:Â 11/6 finished.Â Â 
+Â 
+* Anomaly detection and forecasting with ML algorithms:Â forecast: 70%% done [2/3 tasks].Â 
 
  
 
