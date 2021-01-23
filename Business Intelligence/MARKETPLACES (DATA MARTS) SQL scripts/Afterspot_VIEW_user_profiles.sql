@@ -1,0 +1,42 @@
+/*==============================================================*/
+/* Project:        AFTERSPOT                                    */
+/* Created on:     1/15/2021                                    */
+/*==============================================================*/
+
+/*==============================================================*/
+/* View: VIEW_USER_PROFILES                                      */
+/*==============================================================*/
+
+drop view VIEW_USER_PROFILES;
+
+create view VIEW_USER_PROFILES as 
+select USER_SESSION.DEVICEUSER_ID as DEVICEUSER_ID, USER_SESSION.CHANNEL_ID, 
+       CHANNEL_NAME, SUM(SESSION_DURATION/60) as "TOTAL MINUTES WATCHED", 
+       COUNT (DISTINCT USER_SESSION.SESSION_ID) as "DISTINCT USER SESSIONS",
+       CASE WHEN "TOTAL MINUTES WATCHED" > 40 THEN 'HeavyViewer'
+            WHEN "TOTAL MINUTES WATCHED" > 20 THEN 'MidViewer' 
+            WHEN "TOTAL MINUTES WATCHED" > 0 THEN 'LightViewer'
+                ELSE 'NoViewer'
+                END AS "VIEWER CATEGORY",
+       DATE(USER_SESSION.SESSION_START) as DATE
+from (select SESSION_ID, DU.DEVICEUSER_ID AS DEVICEUSER_ID, CHANNEL_ID, SESSION_START, 
+             SESSION_END, DURATION AS SESSION_DURATION, UAIPHASH  
+      from "AFTERSPOT_DB"."RAW_SCHEMA"."FACT_USER_SESSION" US
+      join "AFTERSPOT_DB"."RAW_SCHEMA"."DIM_DEVICEUSER" DU
+            on US.DEVICEUSER_ID = DU.DEVICEUSER_ID
+            ) USER_SESSION
+join (select CONTENT_ID, DURATION AS CONTENT_DURATION, CONTENT_END, CONTENT_START, 
+             CONTENT_TITLE, BCCATEGORY, BCID, ADID, CONTENT.CHANNEL_ID AS CHANNEL_ID, 
+             CHANNEL_NAME, ACTIVE AS ACTIVE_CHANNEL 
+          from "AFTERSPOT_DB"."RAW_SCHEMA"."DIM_CONTENT" CONTENT 
+          join "AFTERSPOT_DB"."RAW_SCHEMA"."DIM_CHANNEL" CHANNEL
+                on CHANNEL.CHANNEL_ID = CONTENT.CHANNEL_ID
+                ) CHANNEL_CONTENT
+on CHANNEL_CONTENT.CHANNEL_ID = USER_SESSION.CHANNEL_ID
+where (USER_SESSION.SESSION_START <= CHANNEL_CONTENT.CONTENT_START
+       and USER_SESSION.SESSION_END > CHANNEL_CONTENT.CONTENT_START)
+            or (USER_SESSION.SESSION_START > CHANNEL_CONTENT.CONTENT_START
+                and USER_SESSION.SESSION_END < CHANNEL_CONTENT.CONTENT_END)
+                       or (USER_SESSION.SESSION_START < CHANNEL_CONTENT.CONTENT_END
+                            and USER_SESSION.SESSION_END >= CHANNEL_CONTENT.CONTENT_END)
+group by DEVICEUSER_ID, USER_SESSION.CHANNEL_ID, CHANNEL_NAME, DATE(USER_SESSION.SESSION_START);
