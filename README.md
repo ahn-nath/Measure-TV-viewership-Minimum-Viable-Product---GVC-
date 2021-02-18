@@ -8,7 +8,7 @@ We worked with more than 500.000 TV devices located in the Czech Republic,
  
  
 
-Accomplished: 
+**Accomplished:** 
 * Data architecture: 3 data models, 3 database connectors (ETL), and 5 data tables. 
  
 * BI processes: 6 case scenarios. 
