@@ -21,7 +21,8 @@ We worked with more than 500.000 TV devices located in the Czech Republic,
 
 **Highlights:** 
 * [Team of the month](https://www.linkedin.com/posts/databusinessvse_final-presentation-for-gvc-ugcPost-6773210452253011968-q5Yl)
-* [Newsletter - highlight](https://us7.campaign-archive.com/?u=16065387231a260180bf8a026&id=e45e84382a)
+* [Newsletter - Highlight](https://us7.campaign-archive.com/?u=16065387231a260180bf8a026&id=e45e84382a)
+* [GVC - Case study](https://www.globalventurecatalyst.org/copy-of-design-sprint-caee-studies?pgid=km9rnp4w2-5b2e72bd-bf78-4c48-91fa-707cc4729977)
 
 
 
